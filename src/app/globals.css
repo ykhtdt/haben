@@ -2,8 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  :root {
+    --primary: 233 64% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 94% 46%;
+    --secondary-foreground: 0 0% 98%;
+
+    --destructive: 0 68% 42%;
+    --destructive-foreground: 0 0% 98%;
+
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+  }
+
+  .dark {
+    --primary: 233 64% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 94% 46%;
+    --secondary-foreground: 0 0% 98%;
+
+    --destructive: 0 68% 42%;
+    --destructive-foreground: 0 0% 98%;
+
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
