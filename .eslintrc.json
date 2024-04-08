@@ -15,6 +15,9 @@
       "error",
       "never"
     ],
-    "react/no-unescaped-entities": "off"
+    "quotes": [
+      "error",
+      "double"
+    ]
   }
 }
