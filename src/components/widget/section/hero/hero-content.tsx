@@ -34,7 +34,7 @@ const HeroContent = ({
     })
   }, [controls, currentContent])
 
-  const { key, image, children } = content
+  const { key, imageUrl, children } = content
 
   return (
     <div className={cn("w-full", { "hidden": key !== currentContent.key })}>
@@ -44,7 +44,7 @@ const HeroContent = ({
       <motion.div
         animate={controls}
         className="absolute inset-0 bg-cover bg-center will-change-transform"
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .5)), url(${image})` }}
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .5)), url(${imageUrl})` }}
       />
     </div>
   )

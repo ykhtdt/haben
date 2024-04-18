@@ -1,7 +1,7 @@
 export type SectionContentType = {
   key: string;
   children: string;
-  image: string;
+  imageUrl: string;
 }
 
 export * from "./hero-section"
