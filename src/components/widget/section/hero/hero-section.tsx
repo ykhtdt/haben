@@ -9,32 +9,6 @@ import { easeOut } from "@/lib/animate-times"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 
-interface Value {
-  key: string;
-  children: string;
-  image: string;
-}
-
-const values: Value[] = [
-  {
-    key: "tab1",
-    children: "tab1",
-    image: "animals1.jpg",
-  }, {
-    key: "tab2",
-    children: "tab2",
-    image: "animals2.jpg",
-  }, {
-    key: "tab3",
-    children: "tab3",
-    image: "animals3.jpg",
-  }, {
-    key: "tab4",
-    children: "tab4",
-    image: "animals4.jpg",
-  },
-]
-
 type Content = {
   key: string;
   children: string;
@@ -46,7 +20,10 @@ type Props = {
   duration?: number;
 }
 
-const HeroSection = ({ contents = values, duration = 10000 }: Props) => {
+const HeroSection = ({
+  contents,
+  duration = 10000,
+}: Props) => {
   const [currentTab, setCurrentTab] = useState<Content>(contents[0])
   const [progress, setProgress] = useState<number>(0)
 
@@ -61,22 +38,22 @@ const HeroSection = ({ contents = values, duration = 10000 }: Props) => {
   }, [contents])
 
   useEffect(() => {
-    const changeTab = setInterval(() => {
+    const autoRotateTab = setInterval(() => {
       setCurrentTab(prev => {
-        const prevIndex = contents.findIndex(current => current.key === prev.key)
-        const nextIndex = (prevIndex + 1) % contents.length
+        const prevTabIndex = contents.findIndex(current => current.key === prev.key)
+        const nextTabIndex = (prevTabIndex + 1) % contents.length
 
-        return contents[nextIndex]
+        return contents[nextTabIndex]
       })
     }, duration)
 
-    return () => clearInterval(changeTab)
+    return () => clearInterval(autoRotateTab)
   }, [contents, currentTab, duration])  
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null
 
-    const startInterval = () => {
+    const startProgressUpdate = () => {
       const startTime = Date.now()
 
       interval = setInterval(() => {
@@ -95,7 +72,7 @@ const HeroSection = ({ contents = values, duration = 10000 }: Props) => {
     }
 
     setProgress(0)
-    startInterval()
+    startProgressUpdate()
 
     return () => {
       if (interval) {
