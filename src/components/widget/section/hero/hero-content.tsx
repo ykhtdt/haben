@@ -1,6 +1,6 @@
 import type { SectionContentType } from "."
 
-import { ReactNode, useEffect } from "react"
+import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 
 import { cn } from "@/lib/utils"
@@ -8,18 +8,14 @@ import { cn } from "@/lib/utils"
 import { TabsContent } from "@/components/ui/tabs"
 
 type Props = {
-  text: string
-  content: ReactNode
-  imageUrl: string
-  currentTab: SectionContentType
+  content: SectionContentType
+  currentContent: SectionContentType
   duration: number
 }
 
 const HeroContent = ({
-  text,
   content,
-  imageUrl,
-  currentTab,
+  currentContent,
   duration,
 }: Props) => {
   const controls = useAnimation()
@@ -29,24 +25,26 @@ const HeroContent = ({
       scale: [1, 1.25],
       transition: { duration: duration / 1000, repeat: Infinity }
     })
-  }, [controls, currentTab, duration])
+  }, [controls, currentContent, duration])
 
   useEffect(() => {
     controls.start({
       opacity: [0, 1],
       transition: { duration: 1 }
     })
-  }, [controls, currentTab])
+  }, [controls, currentContent])
+
+  const { key, image, children } = content
 
   return (
-    <div key={text} className={cn("w-full", { "hidden": text !== currentTab.key })}>
-      <TabsContent value={text} className="relative flex flex-col items-center justify-center w-full h-screen min-h-[750px] m-0 z-40">
-        {content}
+    <div className={cn("w-full", { "hidden": key !== currentContent.key })}>
+      <TabsContent value={key} className="relative flex flex-col items-center justify-center w-full h-screen min-h-[750px] m-0 z-40">
+        {children}
       </TabsContent>
       <motion.div
         animate={controls}
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .5)), url(${imageUrl})` }}
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .5)), url(${image})` }}
       />
     </div>
   )

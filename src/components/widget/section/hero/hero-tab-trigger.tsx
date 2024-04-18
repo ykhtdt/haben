@@ -10,13 +10,13 @@ import { Progress } from "@/components/ui/progress"
 
 type Props = {
   text: string
-  currentTab: SectionContentType
+  currentContent: SectionContentType
   duration: number
 }
 
 const HeroTabTrigger = ({
   text,
-  currentTab,
+  currentContent,
   duration,
 }: Props) => {
   const [progress, setProgress] = useState<number>(0)
@@ -45,20 +45,17 @@ const HeroTabTrigger = ({
         clearInterval(interval)
       }
     }
-  }, [currentTab, duration])
+  }, [currentContent, duration])
+
+  const isActive = text === currentContent.key
+  const progressValue = text !== currentContent.key ? 0 : progress * 100
 
   return (
-    <TabsTrigger value={text}
-      className={cn("flex-col p-0 text-lg text-[#b1b1b1] capitalize justify-start font-normal w-full data-[state=active]:shadow-none",
-        {
-          "text-white": text === currentTab.key
-        }
-      )}
-    >
-      <div className="w-full text-left pt-2 pb-4">
+    <TabsTrigger value={text} className="flex-col p-0 capitalize font-normal w-full data-[state=active]:shadow-none">
+      <div className={cn("w-full text-[#B1B1B1] text-left text-xs sm:text-lg pt-2 pb-4", { "text-white": isActive })}>
         {text}
       </div>
-      <Progress value={text !== currentTab.key ? 0 : progress * 100} className="w-full h-[1px]" />
+      <Progress value={progressValue} className="w-full h-[1px]" />
     </TabsTrigger>
   )
 }
