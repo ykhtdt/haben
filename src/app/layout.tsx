@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
-import { Poppins  } from "next/font/google"
+import { Montserrat } from "next/font/google"
 
 import { ThemeProvider } from "@/components/provider/theme-provider"
 
 import "./globals.css"
+import { Header } from "@/components/ui/header"
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] })
+const font = Montserrat({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,14 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>
+      <body className={font.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Header />
+          <main>
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
