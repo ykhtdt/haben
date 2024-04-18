@@ -52,7 +52,7 @@ const HeroSection = ({
             />
           ))}
         </div>
-        <TabsList loop className="absolute right-0 bottom-0 left-0 w-full flex gap-[5%] px-6 sm:px-8 pt-4 pb-16 z-50">
+        <TabsList loop className="absolute right-0 bottom-0 left-0 w-full flex gap-[5%] px-6 sm:px-8 pt-4 pb-16 z-50 rounded-none bg-gradient-to-b from-black/0 to-black/80">
           {contents.map((content) => (
             <HeroTabTrigger
               key={content.key}
