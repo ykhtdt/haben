@@ -27,15 +27,11 @@ const HeroSection = ({
   const [currentTab, setCurrentTab] = useState<Content>(contents[0])
   const [progress, setProgress] = useState<number>(0)
 
-  const handleChange = useCallback((value: string) => {
-    setCurrentTab(prev => {
-      if (prev.key !== value) {
-        return contents.find(current => current.key === value)!
-      }
-
-      return prev
-    })
-  }, [contents])
+  const handleChange = useCallback((selectedTabKey: string) => {
+    if (currentTab.key !== selectedTabKey) {
+      setCurrentTab(contents.find(current => current.key === selectedTabKey)!)
+    }
+  }, [contents, currentTab.key])
 
   useEffect(() => {
     const autoRotateTab = setInterval(() => {
@@ -54,20 +50,15 @@ const HeroSection = ({
     let interval: NodeJS.Timeout | null = null
 
     const startProgressUpdate = () => {
+      setProgress(0)
+
       const startTime = Date.now()
 
       interval = setInterval(() => {
         const elapsed = Date.now() - startTime
         const progressRatio = elapsed / duration
 
-        if (progressRatio >= 1) {
-          if (interval) {
-            clearInterval(interval)
-          }
-          setProgress(0)
-        } else {
-          setProgress(easeOut(progressRatio))
-        }
+        setProgress(easeOut(progressRatio))
       }, duration / 1000)
     }
 
@@ -108,7 +99,7 @@ const HeroSection = ({
               </TabsContent>
               <motion.div
                 animate={controls}
-                className={cn("absolute inset-0 bg-cover bg-center", { "hidden": content.key !== currentTab.key })}
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .5)), url(${content.image})` }}
               />
             </div>
@@ -118,7 +109,7 @@ const HeroSection = ({
           {contents.map((content) => {
             return (
               <div key={content.key} className="w-full">
-                <TabsTrigger value={content.key} key={content.key}
+                <TabsTrigger value={content.key}
                   className={cn("p-0 text-lg text-[#b1b1b1] capitalize justify-start font-normal w-full pt-2 pb-4",
                     {
                       "text-white": content.key === currentTab.key
