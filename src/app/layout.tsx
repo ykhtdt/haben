@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
 
 import { ThemeProvider } from "@/components/provider/theme-provider"
+import { Header } from "@/components/ui/header"
 
 import "./globals.css"
-import { Header } from "@/components/ui/header"
 
 const font = Montserrat({ subsets: ["latin"] })
 
