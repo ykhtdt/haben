@@ -3,9 +3,8 @@ import type { LinkItem } from "."
 import Link from "next/link"
 
 import { ArrowUpRight } from "lucide-react"
+import { LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
 import { motion } from "framer-motion"
-
-import { cn } from "@/lib/utils"
 
 type Props = {
   links: LinkItem[];
@@ -38,7 +37,7 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
       variants={containerMotion}
       transition={containerTransition}
     >
-      <div className="flex flex-col gap-12 items-center justify-space-between h-full pt-48">
+      <div className="flex flex-col gap-12 items-center justify-between h-full pt-48 pb-12 px-6 sm:px-12">
         <ul className="flex flex-col gap-4 text-3xl font-medium capitalize">
           {links.map((link) => (
             <li key={link.text}>
@@ -60,8 +59,15 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
             </li>
           ))}
         </ul>
-        <div className="">
-          
+        <div className="flex flex-row justify-end w-full">
+          <div className="grid grid-cols-2 items-end gap-6 pr-3">
+            <Link href="/" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <LinkedInLogoIcon className="w-6 h-6 hover:text-zinc-200 transition-colors" />
+            </Link>
+            <Link href="/" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <GitHubLogoIcon className="w-6 h-6 hover:text-zinc-200 transition-colors" />
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>
