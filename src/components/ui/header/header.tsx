@@ -62,7 +62,7 @@ const Header = () => {
           </Button>
         </div>
       </header>
-      <HeaderMenu links={Links} className={cn("hidden", { "block": isOpenMenu })} />
+      <HeaderMenu links={Links} isOpen={isOpenMenu} />
     </div>
   )
 }
