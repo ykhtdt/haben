@@ -60,7 +60,7 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
           ))}
         </ul>
         <div className="flex flex-row justify-end w-full">
-          <div className="grid grid-cols-2 items-end gap-6 pr-3">
+          <div className="grid grid-cols-2 items-end gap-6 pr-3 pb-10">
             <Link href="/" target="_blank" rel="noopener noreferrer" className="inline-block">
               <LinkedInLogoIcon className="w-6 h-6 hover:text-zinc-200 transition-colors" />
             </Link>
