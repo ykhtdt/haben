@@ -37,8 +37,8 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
       variants={containerMotion}
       transition={containerTransition}
     >
-      <div className="flex flex-col gap-12 items-center justify-between h-full pt-48 pb-12 px-6 sm:px-12">
-        <ul className="flex flex-col gap-4 text-3xl font-medium capitalize">
+      <div className="flex flex-col gap-12 items-start sm:items-center justify-between h-full pt-48 pb-16 px-6 sm:px-12">
+        <ul className="flex flex-col gap-4">
           {links.map((link) => (
             <li key={link.text}>
               <MotionLink
@@ -49,10 +49,10 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
                 whileFocus="hover"
                 className="flex gap-4 items-end focus:outline-none [&>span]:focus-visible:ring-2 [&>span]:focus-visible:ring-ring" 
               >
-                <motion.span variants={linkMotion} className="pointer-events-none">
+                <motion.span variants={linkMotion} className="pointer-events-none hidden sm:inline-block">
                   <ArrowUpRight className="w-7 h-7" strokeWidth={2.5} />
                 </motion.span>
-                <span>
+                <span className="text-2xl sm:text-3xl sm:font-medium capitalize">
                   {link.text}
                 </span>
               </MotionLink>
