@@ -55,14 +55,14 @@ const HeroContent = ({
   return (
     <div className={cn("w-full px-6 sm:px-12", { "hidden": key !== currentContent.key })}>
       <TabsContent value={key} className="relative flex flex-col items-center justify-center w-full h-screen min-h-[750px] m-0 z-40">
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-8 overflow-hidden">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_0.25fr] 2xl:grid-cols-[1fr_0.5fr] gap-8 overflow-hidden">
           <div>
             <motion.div
               initial="initial" 
               animate={isCurrentContent ? "visible" : "hidden"}
               variants={titleMotion}
               transition={{ duration: 0.75, ease: "easeIn"}}
-              className="text-3xl sm:text-6xl mb-6 sm:mb-12 leading-snug sm:leading-normal capitalize"
+              className="text-3xl 2xl:text-5xl mb-6 sm:mb-12 leading-snug 2xl:leading-normal capitalize"
             >
               {title}
             </motion.div>
@@ -71,7 +71,7 @@ const HeroContent = ({
               animate={isCurrentContent ? "visible" : "hidden"}
               variants={buttonMotion}
               variant="outline"
-              transition={{ duration: 1, ease: "easeIn"}}
+              transition={{ delay: 0.5, duration: 0.5, ease: "easeIn" }}
               asChild
               className="border-white hover:bg-[#AAA197] rounded-full uppercase"
             >
