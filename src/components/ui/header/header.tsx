@@ -42,13 +42,13 @@ const Header = () => {
     <div className="z-100 w-full fixed top-0 bottom-auto right-0 left-0 h-0">
       <header className="fixed top-0 bottom-auto left-0 right-0 overflow-hidden h-20 flex items-center justify-between px-6 sm:px-12 z-50 bg-gradient-to-b from-zinc-900/80 to-zinc-900/0">
         <div className="w-1/3 hidden md:flex items-center justify-start">
-          <nav className="flex gap-10 font-normal uppercase tracking-wider">
+          <div className="flex gap-10 font-normal uppercase tracking-wider">
             {Links.slice(0, 2).map((link) => 
               <Link href={link.href} key={link.text}>
                 {link.text}
               </Link>
             )}
-          </nav>
+          </div>
         </div>
         <div className="w-1/2 md:w-1/3 flex items-center justify-start md:justify-center">
           <Link href="/">
