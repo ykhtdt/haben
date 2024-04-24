@@ -53,10 +53,17 @@ const Header = () => {
         <div className="w-1/2 md:w-1/3 flex items-center justify-start md:justify-center">
           <Link href="/">
             <HabenIcon className="w-24" />
+            <span className="sr-only">header logo</span>
           </Link>
         </div>
         <div className="w-1/2 md:w-1/3 flex items-center justify-end">
-          <Button size="icon" onClick={handleOpenMenu} className="bg-transparent hover:bg-transparent shadow-none">
+          <Button size="icon"
+            onClick={handleOpenMenu}
+            aria-haspopup="true"
+            aria-expanded={isOpenMenu}
+            aria-label={isOpenMenu ? "Close menu" : "Open menu"}
+            className="bg-transparent hover:bg-transparent shadow-none"
+          >
             <HamburgerMenuIcon className={cn("w-6 h-6", { "hidden": isOpenMenu })} />
             <Cross1Icon className={cn("w-6 h-6", { "hidden": !isOpenMenu })} />
           </Button>
