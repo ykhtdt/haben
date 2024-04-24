@@ -6,6 +6,8 @@ import { ArrowUpRight } from "lucide-react"
 import { LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
 import { motion } from "framer-motion"
 
+import { cn } from "@/lib/utils"
+
 type Props = {
   links: LinkItem[];
   isOpen: boolean;
@@ -31,7 +33,7 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
 
   return (
     <motion.div
-      className={"relative inset-0 w-full h-screen bg-[#AAA197]"}
+      className={cn("relative inset-0 w-full h-screen bg-[#AAA197]", { "hidden": !isOpen })}
       initial="hidden"
       animate={isOpen ? "visible" : "hidden"}
       variants={containerMotion}
