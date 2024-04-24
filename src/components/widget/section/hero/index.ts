@@ -1,6 +1,7 @@
 export type SectionContentType = {
   key: string
-  children: string
+  title: string
+  href: string
   imageUrl: string
 }
 

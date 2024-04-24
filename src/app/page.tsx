@@ -7,19 +7,23 @@ export default function Home() {
         contents={[
           {
             key: "tab1",
-            children: "tab1",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas.",
+            href: "/",
             imageUrl: "animals1.jpg",
           }, {
             key: "tab2",
-            children: "tab2",
+            title: "Sagittis eu volutpat odio facilisis mauris.",
+            href: "/",
             imageUrl: "animals2.jpg",
           }, {
             key: "tab3",
-            children: "tab3",
+            title: "Sed egestas egestas fringilla phasellus faucibus scelerisque.",
+            href: "/",
             imageUrl: "animals3.jpg",
           }, {
             key: "tab4",
-            children: "tab4",
+            title: "Auctor elit sed vulputate mi sit amet mauris.",
+            href: "/",
             imageUrl: "animals4.jpg",
           },
         ]}

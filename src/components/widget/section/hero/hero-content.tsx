@@ -1,11 +1,16 @@
 import type { SectionContentType } from "."
 
 import { useEffect } from "react"
+
 import { motion, useAnimation } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
 import { TabsContent } from "@/components/ui/tabs"
+
+import { HeroTitle } from "./hero-title"
+import { HeroButton } from "./hero-button"
+import { HeroBackground } from "./hero-background"
 
 type Props = {
   content: SectionContentType
@@ -18,34 +23,21 @@ const HeroContent = ({
   currentContent,
   duration,
 }: Props) => {
-  const controls = useAnimation()
+  const { key, imageUrl, href, title } = content
 
-  useEffect(() => {
-    controls.start({
-      scale: [1, 1.25],
-      transition: { duration: duration / 1000, repeat: Infinity }
-    })
-  }, [controls, currentContent, duration])
-
-  useEffect(() => {
-    controls.start({
-      opacity: [0, 1],
-      transition: { duration: 1 }
-    })
-  }, [controls, currentContent])
-
-  const { key, imageUrl, children } = content
+  const isCurrentContent = key === currentContent.key
 
   return (
-    <div className={cn("w-full", { "hidden": key !== currentContent.key })}>
+    <div className={cn("w-full px-6 sm:px-12", { "hidden": key !== currentContent.key })}>
       <TabsContent value={key} className="relative flex flex-col items-center justify-center w-full h-screen min-h-[750px] m-0 z-40">
-        {children}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_0.25fr] 2xl:grid-cols-[1fr_0.5fr] gap-8 overflow-hidden">
+          <div>
+            <HeroTitle text={title} isAnimate={isCurrentContent} />
+            <HeroButton href={href} isAnimate={isCurrentContent} />
+          </div>
+        </div>
       </TabsContent>
-      <motion.div
-        animate={controls}
-        className="absolute inset-0 bg-cover bg-center will-change-transform"
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .5)), url(${imageUrl})` }}
-      />
+      <HeroBackground duration={duration} imageUrl={imageUrl} currentContent={currentContent} />
     </div>
   )
 }

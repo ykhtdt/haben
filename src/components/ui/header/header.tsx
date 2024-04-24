@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { HeaderMenu } from "@/components/ui/header/header-menu"
 
-import Logo from "./logo.svg"
+import HabenIcon from "./haben.svg"
 
 const Links = [
   {
@@ -52,7 +52,7 @@ const Header = () => {
         </div>
         <div className="w-1/2 md:w-1/3 flex items-center justify-start md:justify-center">
           <Link href="/">
-            <Logo className="w-24" />
+            <HabenIcon className="w-24" />
           </Link>
         </div>
         <div className="w-1/2 md:w-1/3 flex items-center justify-end">
