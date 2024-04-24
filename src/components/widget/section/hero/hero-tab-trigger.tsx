@@ -55,7 +55,7 @@ const HeroTabTrigger = ({
       <div className={cn("w-full text-[#B1B1B1] text-left text-xs sm:text-lg pt-2 pb-4", { "text-white": isActive })}>
         {text}
       </div>
-      <Progress value={progressValue} className="w-full h-[1px]" />
+      <Progress value={progressValue} aria-label={`${text} loading progress`} className="w-full h-[1px]" />
     </TabsTrigger>
   )
 }
