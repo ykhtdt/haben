@@ -1,5 +1,6 @@
 import type { LinkItem } from "."
 
+import { useState } from "react"
 import Link from "next/link"
 
 import { ArrowUpRight } from "lucide-react"
@@ -16,6 +17,8 @@ type Props = {
 const MotionLink= motion(Link)
 
 const HeaderMenu = ({ links, isOpen }: Props) => {
+  const [isCloseAnimationComplete, setIsCloseAnimationComplete] = useState(true)
+
   const containerMotion = {
     hidden: { y: "-100vh" },
     visible: { y: "0vh" }
@@ -31,13 +34,22 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
     hover: { opacity: 1, x: ["-75%", "0%"], y: ["75%", "0%"] },
   }
 
+  const handleCloseAnimationComplete = (animate: "visible" | "hidden") => {
+    if (animate === "hidden") {
+      setIsCloseAnimationComplete(true)
+    } else {
+      setIsCloseAnimationComplete(false)
+    }
+  }
+
   return (
     <motion.div
-      className={cn("relative inset-0 w-full h-screen bg-[#AAA197]", { "hidden": !isOpen })}
+      className={cn("relative inset-0 w-full h-screen bg-[#AAA197]", { "hidden": !isOpen && isCloseAnimationComplete })}
       initial="hidden"
       animate={isOpen ? "visible" : "hidden"}
       variants={containerMotion}
       transition={containerTransition}
+      onAnimationComplete={handleCloseAnimationComplete}
     >
       <div className="flex flex-col gap-12 items-start sm:items-center justify-between h-full pt-48 pb-16 px-6 sm:px-12">
         <ul className="flex flex-col gap-4">
