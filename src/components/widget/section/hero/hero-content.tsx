@@ -13,12 +13,14 @@ import { HeroButton } from "./hero-button"
 import { HeroBackground } from "./hero-background"
 
 type Props = {
+  index: number
   content: SectionContentType
   currentContent: SectionContentType
   duration: number
 }
 
 const HeroContent = ({
+  index,
   content,
   currentContent,
   duration,
@@ -37,7 +39,7 @@ const HeroContent = ({
           </div>
         </div>
       </TabsContent>
-      <HeroBackground duration={duration} imageUrl={imageUrl} currentContent={currentContent} />
+      <HeroBackground index={index} text={key} duration={duration} imageUrl={imageUrl} currentContent={currentContent} />
     </div>
   )
 }

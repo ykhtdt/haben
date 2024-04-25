@@ -43,8 +43,9 @@ const HeroSection = ({
     <div className="relative overflow-hidden">
       <Tabs defaultValue={currentContent.key} value={currentContent.key} className="w-full" onValueChange={handleChange}>
         <div className="h-screen min-h-[750px] flex flex-col items-center flex-1">
-          {contents.map((content) => (
+          {contents.map((content, i) => (
             <HeroContent
+              index={i}
               key={content.key}
               content={content}
               currentContent={currentContent}
