@@ -14,6 +14,8 @@ type Props = {
   duration: number
 }
 
+const updateFrequency = 300
+
 const HeroTabTrigger = ({
   text,
   currentContent,
@@ -34,7 +36,7 @@ const HeroTabTrigger = ({
         const progressRatio = elapsed / duration
 
         setProgress(easeOut(progressRatio))
-      }, duration / 1000)
+      }, duration / updateFrequency)
     }
 
     setProgress(0)
