@@ -1,11 +1,13 @@
 import { motion } from "framer-motion"
 
 type Props = {
+  index: number
   text: string
   isAnimate: boolean
 }
 
 const HeroTitle = ({
+  index,
   text,
   isAnimate,
 }: Props) => {
@@ -27,8 +29,10 @@ const HeroTitle = ({
 
   const animate = isAnimate ? "visible" : "hidden"
 
+  const Component = index === 0 ? motion.h1 : motion.div
+
   return (
-    <motion.div
+    <Component
       initial="initial" 
       animate={animate}
       variants={variants}
@@ -36,7 +40,7 @@ const HeroTitle = ({
       className="text-3xl 2xl:text-5xl mb-6 sm:mb-12 leading-snug 2xl:leading-normal capitalize"
     >
       {text}
-    </motion.div>
+    </Component>
   )
 }
 

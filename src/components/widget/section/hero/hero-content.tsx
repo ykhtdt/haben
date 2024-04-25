@@ -34,7 +34,7 @@ const HeroContent = ({
       <TabsContent value={key} className="relative flex flex-col items-center justify-center w-full h-screen min-h-[750px] m-0 z-40">
         <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_0.25fr] 2xl:grid-cols-[1fr_0.5fr] gap-8 overflow-hidden">
           <div>
-            <HeroTitle text={title} isAnimate={isCurrentContent} />
+            <HeroTitle index={index} text={title} isAnimate={isCurrentContent} />
             <HeroButton href={href} isAnimate={isCurrentContent} />
           </div>
         </div>
