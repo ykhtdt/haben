@@ -82,7 +82,7 @@ const ListTimeLineItem = ({
 
   return (
     <li className="bg-white text-black first:border-t border-b border-black">
-      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-4 lg:py-8 px-6 lg:px-12">
+      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-4 lg:py-8 px-6 lg:px-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2">
         <motion.div
           style={{ translateY }}
           animate={controls}
