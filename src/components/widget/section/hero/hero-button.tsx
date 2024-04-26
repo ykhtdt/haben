@@ -36,7 +36,7 @@ const HeroButton = ({
       transition={transition}
       variant="outline"
       asChild
-      className="border-white hover:bg-[#AAA197] rounded-full uppercase"
+      className="border-white/25 hover:bg-[#AAA197] rounded-full uppercase focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-1"
     >
       <Link href={href}>
         View details

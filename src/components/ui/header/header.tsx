@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <div className="z-100 w-full fixed top-0 bottom-auto right-0 left-0 h-0">
-      <header className="fixed top-0 bottom-auto left-0 right-0 overflow-hidden h-20 flex items-center justify-between px-6 sm:px-12 z-50 bg-gradient-to-b from-zinc-900/80 to-zinc-900/0">
+      <header className="fixed top-0 bottom-auto left-0 right-0 overflow-hidden h-20 flex items-center justify-between px-6 sm:px-12 z-50 text-white bg-gradient-to-b from-zinc-900/80 to-zinc-900/0">
         <div className="w-1/3 hidden md:flex items-center justify-start">
           <div className="flex gap-10 font-normal uppercase tracking-wider">
             {Links.slice(0, 2).map((link) => 
@@ -62,7 +62,7 @@ const Header = () => {
             aria-haspopup="true"
             aria-expanded={isOpenMenu}
             aria-label={isOpenMenu ? "Close menu" : "Open menu"}
-            className="bg-transparent hover:bg-transparent shadow-none"
+            className="bg-transparent hover:bg-transparent shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-2"
           >
             <HamburgerMenuIcon className={cn("w-6 h-6", { "hidden": isOpenMenu })} />
             <Cross1Icon className={cn("w-6 h-6", { "hidden": !isOpenMenu })} />

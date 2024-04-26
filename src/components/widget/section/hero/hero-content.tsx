@@ -33,7 +33,7 @@ const HeroContent = ({
     <div className={cn("w-full px-6 sm:px-12", { "hidden": key !== currentContent.key })}>
       <TabsContent value={key} className="relative flex flex-col items-center justify-center w-full h-screen min-h-[750px] m-0 z-40">
         <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_0.25fr] 2xl:grid-cols-[1fr_0.5fr] gap-8 overflow-hidden">
-          <div>
+          <div className="text-white py-2">
             <HeroTitle index={index} text={title} isAnimate={isCurrentContent} />
             <HeroButton href={href} isAnimate={isCurrentContent} />
           </div>
