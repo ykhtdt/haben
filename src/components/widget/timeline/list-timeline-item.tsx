@@ -9,7 +9,7 @@ type Props = {
   index: number
 }
 
-const initialTranslateY = -100
+const initialTranslateY = "-100%"
 
 const ListTimeLineItem = ({
   index,
@@ -27,8 +27,9 @@ const ListTimeLineItem = ({
 
       if (rect) {
         const y = ((e.clientY - rect.top) / rect.height) * 100
-        translateY.set(y <= 50 ? -100 : 100)
-        controls.start({ translateY: 0 })
+        console.log(y)
+        translateY.set(y <= 50 ? "-100%" : "100%")
+        controls.start({ translateY: "0%" })
       }
     }
 
@@ -37,7 +38,7 @@ const ListTimeLineItem = ({
 
       if (rect) {
         const y = ((e.clientY - rect.top) / rect.height) * 100
-        controls.start({ translateY: y <= 50 ? -100 : 100 })
+        controls.start({ translateY: y <= 50 ? "-100%" : "100%" })
       }
     }
 
@@ -78,7 +79,7 @@ const ListTimeLineItem = ({
 
   return (
     <li className="bg-white text-black first:border-t border-b border-black">
-      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-8 px-6 sm:px-12">
+      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-12 px-6 sm:px-12">
         <motion.div
           style={{ translateY }}
           animate={controls}
