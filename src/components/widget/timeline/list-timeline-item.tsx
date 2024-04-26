@@ -27,7 +27,6 @@ const ListTimeLineItem = ({
 
       if (rect) {
         const y = ((e.clientY - rect.top) / rect.height) * 100
-        console.log(y)
         translateY.set(y <= 50 ? "-100%" : "100%")
         controls.start({ translateY: "0%" })
       }
