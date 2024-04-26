@@ -2,6 +2,19 @@ import { HeroSection } from "@/components/widget/section/hero/hero-section"
 import { ListTimeline } from "@/components/widget/timeline"
 
 export default function Home() {
+  const repeat = Array.from({ length: 10 }, (_, i) => i)
+
+  const item = {
+    date: "2024",
+    children: [
+      "Lorem ipsum",
+      "Lorem ipsum dolor",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    ] as [string, string, string]
+  }
+
+  const items = repeat.map(() => item)
+
   return (
     <>
       <HeroSection
@@ -30,10 +43,9 @@ export default function Home() {
         ]}
       />
       <section id="">
-        <ListTimeline />
+        <ListTimeline items={items} />
       </section>
       <div style={{ height: "1000px" }}  />
-      {/* 테마 영향 받지 않게 컬러 값 주기, 숫자 올라가는거, 줄어드는거 */}
     </>
   )
 }
