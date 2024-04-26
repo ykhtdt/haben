@@ -44,7 +44,7 @@ const HeaderMenu = ({ links, isOpen }: Props) => {
 
   return (
     <motion.div
-      className={cn("relative inset-0 w-full h-screen bg-[#AAA197]", { "hidden": !isOpen && isCloseAnimationComplete })}
+      className={cn("relative inset-0 w-full h-screen bg-[#AAA197] text-white", { "hidden": !isOpen && isCloseAnimationComplete })}
       initial="hidden"
       animate={isOpen ? "visible" : "hidden"}
       variants={containerMotion}
