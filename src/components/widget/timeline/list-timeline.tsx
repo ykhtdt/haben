@@ -11,13 +11,11 @@ const ListTimeline = ({
 }: Props) => {
 
   return (
-    <div>
-      <ul>
-        {items.map((item, i) => (
-          <ListTimeLineItem key={i} index={i} item={item} />
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {items.map((item, i) => (
+        <ListTimeLineItem key={i} index={i} item={item} />
+      ))}
+    </ul>
   )
 }
 
