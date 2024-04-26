@@ -78,23 +78,23 @@ const ListTimeLineItem = ({
 
   return (
     <li className="bg-white text-black first:border-t border-b border-black">
-      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-12 px-6 sm:px-12">
+      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-4 lg:py-8 px-6 lg:px-12">
         <motion.div
           style={{ translateY }}
           animate={controls}
           transition={transition}
           className={`absolute top-0 left-0 w-full h-full ${background}`}
         />
-        <div className="relative flex flex-row items-center gap-4">
-          <div className="w-1/4 font-bold text-3xl">
-            Sed nunc
+        <div className="relative flex flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-4">
+          <div className="w-full lg:w-1/4 font-bold text-xl lg:text-3xl">
+            Lorem ipsum
           </div>
-          <div className="w-1/4 font-normal text-lg">
-            Pellentesque efficitur eros
+          <div className="w-full lg:w-1/4 font-normal text-base lg:text-lg">
+            Lorem ipsum dolor
           </div>
-          <div className="flex flex-row items-center justify-between flex-grow font-medium text-sm">
+          <div className="w-full lg:w-1/2 flex flex-row items-center justify-between flex-grow font-medium text-xs lg:text-sm gap-2">
             <div>
-              Mauris lectus nunc, dapibus vitae ipsum et, mollis cursus turpis
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </div>
             <span className="border border-black rounded-full py-1 px-2">
               2024
