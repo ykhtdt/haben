@@ -1,14 +1,20 @@
+import type { ListTimeLineItemType } from "."
+
 import { ListTimeLineItem } from "./list-timeline-item"
 
-const ListTimeline = () => {
+type Props = {
+  items: ListTimeLineItemType[]
+}
 
-  const repeat = Array.from({ length: 10 }, (_, i) => i)
+const ListTimeline = ({
+  items,
+}: Props) => {
 
   return (
     <div>
       <ul>
-        {repeat.map((index, i) => (
-          <ListTimeLineItem key={i} index={index} />
+        {items.map((item, i) => (
+          <ListTimeLineItem key={i} index={i} item={item} />
         ))}
       </ul>
     </div>
