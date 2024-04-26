@@ -1,5 +1,7 @@
 "use client"
 
+import type { ListTimeLineItemType } from "."
+
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 
@@ -7,12 +9,14 @@ import { motion, useMotionValue, useAnimation } from "framer-motion"
 
 type Props = {
   index: number
+  item: ListTimeLineItemType
 }
 
 const initialTranslateY = "-100%"
 
 const ListTimeLineItem = ({
   index,
+  item,
 }: Props) => {
   const linkRef = useRef<HTMLAnchorElement | null>(null)
 
@@ -78,7 +82,7 @@ const ListTimeLineItem = ({
 
   return (
     <li className="bg-white text-black first:border-t border-b border-black">
-      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-4 lg:py-8 px-6 lg:px-12">
+      <Link href="/" ref={linkRef} className="relative overflow-hidden block w-full py-4 lg:py-8 px-6 lg:px-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2">
         <motion.div
           style={{ translateY }}
           animate={controls}
@@ -87,17 +91,17 @@ const ListTimeLineItem = ({
         />
         <div className="relative flex flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-4">
           <div className="w-full lg:w-1/4 font-bold text-xl lg:text-3xl">
-            Lorem ipsum
+            {item.children[0]}
           </div>
           <div className="w-full lg:w-1/4 font-normal text-base lg:text-lg">
-            Lorem ipsum dolor
+            {item.children[1]}
           </div>
           <div className="w-full lg:w-1/2 flex flex-row items-center justify-between flex-grow font-medium text-xs lg:text-sm gap-2">
             <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              {item.children[2]}
             </div>
             <span className="border border-black rounded-full py-1 px-2">
-              2024
+              {item.date}
             </span>
           </div>
         </div>
