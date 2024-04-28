@@ -100,7 +100,7 @@ const ListTimeLineItem = ({
             <div>
               {item.children[2]}
             </div>
-            <span className="border border-black rounded-full py-1 px-2">
+            <span className="border border-black rounded-full py-1 px-2 whitespace-nowrap">
               {item.date}
             </span>
           </div>
