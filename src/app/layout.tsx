@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google"
 
 import { ThemeProvider } from "@/components/provider/theme-provider"
 import { Header } from "@/components/ui/header"
-import { SmoothScroll } from "@/components/widget/scroll"
+import { SmoothScroll, ScrollTop } from "@/components/widget/scroll"
 
 import "./globals.css"
 
@@ -32,6 +32,7 @@ export default function RootLayout({
             <Header />
             <main>
               {children}
+              <ScrollTop />
             </main>
           </SmoothScroll>
         </ThemeProvider>
