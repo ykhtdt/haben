@@ -54,7 +54,7 @@ const ScrollTop = () => {
   return (
     <motion.div
       animate={controls}
-      className={cn("fixed z-[999] bottom-12 right-12", { "hidden": !isVisible })}
+      className={cn("fixed z-[999] bottom-10 right-10 sm:bottom-12 sm:right-12", { "hidden": !isVisible })}
     >
       <Button
         onClick={handleScrollToTop}
